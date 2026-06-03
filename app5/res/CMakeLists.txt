@@ -1,0 +1,2 @@
+
+file(COPY font DESTINATION .)
