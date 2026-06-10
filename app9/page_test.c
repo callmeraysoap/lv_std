@@ -13,10 +13,13 @@ void timer_cb_func(lv_timer_t *timer)
 
 void ini_anim(void)
 {
-    label = lv_label_create(lv_scr_act());
-    lv_obj_center(label);
-    lv_label_set_text(label, "Hello");
-    lv_timer_t *timer = lv_timer_create(timer_cb_func,1000,NULL);
-    lv_timer_set_repeat_count(timer,5);// 重复次数
-    lv_timer_ready(timer);// 马上刷新的次数
+    lv_obj_t * cont_row = lv_obj_create(lv_scr_act());
+    lv_obj_set_size(cont_row, 1000, 200);
+    lv_obj_set_flex_flow(cont_row, LV_FLEX_FLOW_COLUMN_WRAP);
+    lv_obj_set_style_pad_column(cont_row, 50, LV_PART_MAIN);
+    for (int i = 0; i < 5; i++) {
+        lv_obj_t * obj = lv_btn_create(cont_row);
+        lv_obj_set_size(obj, 100, 50);
+        lv_obj_t * label = lv_label_create(obj);
+    }
 }
